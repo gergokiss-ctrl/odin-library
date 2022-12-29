@@ -8,6 +8,10 @@ const container = document.querySelector('.container');
 const myLibrary = [];
 let counter = 0;
 
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
