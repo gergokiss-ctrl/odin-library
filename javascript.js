@@ -27,32 +27,38 @@ function addBookToLibrary() {
       myLibrary[counter] = new Book(title.value, author.value, pages.value, read.checked);
       counter += 1;
 
-      const content = document.createElement('div');
-      content.classList.add('content');
-
-      const titleText = document.createElement('div');
-      const authorText = document.createElement('div');
-      const pagesText = document.createElement('div');
-      const readText = document.createElement('div');
-
-      titleText.textContent = `"${title.value}"`;
-      authorText.textContent = author.value;
-      pagesText.textContent = pages.value;
-
-      if (read.checked === true) {
-        readText.textContent = 'Read';
-      } else {
-        readText.textContent = 'Not read';
+      while (container.hasChildNodes()) {
+        container.removeChild(container.firstChild);
       }
 
-      content.appendChild(titleText);
-      content.appendChild(authorText);
-      content.appendChild(pagesText);
-      content.appendChild(readText);
+      for (let i = 0; i < counter; i += 1) {
+        const content = document.createElement('div');
+        content.classList.add('content');
 
-      container.appendChild(content);
+        const titleText = document.createElement('div');
+        const authorText = document.createElement('div');
+        const pagesText = document.createElement('div');
+        const readText = document.createElement('div');
 
-      event.preventDefault();
+        titleText.textContent = myLibrary[i].title;
+        authorText.textContent = myLibrary[i].author;
+        pagesText.textContent = myLibrary[i].pages;
+
+        if (myLibrary[i].read === true) {
+          readText.textContent = 'Read';
+        } else {
+          readText.textContent = 'Not read';
+        }
+
+        content.appendChild(titleText);
+        content.appendChild(authorText);
+        content.appendChild(pagesText);
+        content.appendChild(readText);
+
+        container.appendChild(content);
+
+        event.preventDefault();
+      }
     }
   });
 }
