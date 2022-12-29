@@ -8,10 +8,12 @@ const container = document.querySelector('.container');
 const myLibrary = [];
 let counter = 0;
 
+// eslint-disable-next-line no-unused-vars
 function openForm() {
-  document.getElementById("myForm").style.display = "block";
+  document.getElementById('myForm').style.display = 'block';
 }
 
+// eslint-disable-next-line no-shadow
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -20,7 +22,7 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary() {
-  submit.addEventListener('click', () => {
+  submit.addEventListener('click', (event) => {
     if (title.value !== '' && author.value !== '' && pages.value !== '') {
       myLibrary[counter] = new Book(title.value, author.value, pages.value, read.checked);
       counter += 1;
@@ -49,6 +51,8 @@ function addBookToLibrary() {
       content.appendChild(readText);
 
       container.appendChild(content);
+
+      event.preventDefault();
     }
   });
 }
