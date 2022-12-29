@@ -3,3 +3,26 @@
   padding: 0px;
   box-sizing: border-box;
 }
+
+body {
+  font-family: 'Roboto', serif;
+  font-size: 18px;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  place-content: center;
+  gap: 25px;
+
+  border: solid 1px orange;
+}
+
+.content {
+  border: solid 1px plum;
+  height: 300px;
+  width: 300px;
+}
