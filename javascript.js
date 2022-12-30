@@ -39,6 +39,8 @@ function addBookToLibrary() {
         const authorText = document.createElement('div');
         const pagesText = document.createElement('div');
         const readText = document.createElement('div');
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Remove';
 
         titleText.textContent = myLibrary[i].title;
         authorText.textContent = myLibrary[i].author;
@@ -54,6 +56,7 @@ function addBookToLibrary() {
         content.appendChild(authorText);
         content.appendChild(pagesText);
         content.appendChild(readText);
+        content.appendChild(deleteButton);
 
         container.appendChild(content);
 
