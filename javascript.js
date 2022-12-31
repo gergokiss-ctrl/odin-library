@@ -80,8 +80,7 @@ function addBookToLibrary() {
 
 // eslint-disable-next-line no-unused-vars
 function deleteBook(event) {
-  let target = event.target;
-  myLibrary = myLibrary.splice(target.dataset.index, 1);
+  myLibrary.splice(event.target.dataset.index, 1);
   counter -= 1;
 
   deleteContent();
