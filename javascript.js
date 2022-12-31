@@ -54,9 +54,9 @@ function createContent(event) {
     deleteText.setAttribute('onclick', 'deleteBook(event)');
     deleteText.setAttribute('data-index', i);
 
-    titleText.textContent = myLibrary[i].title;
+    titleText.textContent = `"${myLibrary[i].title}"`;
     authorText.textContent = myLibrary[i].author;
-    pagesText.textContent = myLibrary[i].pages;
+    pagesText.textContent = `${myLibrary[i].pages} pages`;
 
     content.appendChild(titleText);
     content.appendChild(authorText);
