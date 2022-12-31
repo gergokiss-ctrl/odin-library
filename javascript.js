@@ -3,9 +3,9 @@ const author = document.querySelector('.author');
 const pages = document.querySelector('.pages');
 const read = document.querySelector('.read');
 const submit = document.querySelector('.submit');
-const container = document.querySelector('.container');
+const container = document.querySelector('.grid-container');
 
-let myLibrary = [];
+const myLibrary = [];
 let counter = 0;
 
 function openForm() {
@@ -39,11 +39,13 @@ function createContent(event) {
 
     if (myLibrary[i].read === true) {
       readText.textContent = 'Read';
+      readText.setAttribute('class', 'read');
     } else {
       readText.textContent = 'Not read';
+      readText.setAttribute('class', 'not-read');
     }
 
-    readText.setAttribute('class', 'read-button');
+    readText.classList.add('read-button');
     readText.setAttribute('onclick', 'readBook(event)');
     readText.setAttribute('data-index', i);
 
@@ -71,12 +73,19 @@ function createContent(event) {
 function addBookToLibrary() {
   submit.addEventListener('click', (event) => {
     if (title.value !== '' && author.value !== '' && pages.value !== '') {
-      myLibrary[counter] = new Book(title.value, author.value, pages.value, read.checked);
+      myLibrary[counter] = new Book(
+        title.value,
+        author.value,
+        pages.value,
+        read.checked,
+      );
       counter += 1;
 
       deleteContent();
 
       createContent(event);
+
+      document.getElementById('myForm').style.display = 'none';
     }
   });
 }
@@ -85,9 +94,13 @@ function readBook(event) {
   if (myLibrary[event.target.dataset.index].read === true) {
     myLibrary[event.target.dataset.index].read = false;
     event.target.textContent = 'Not read';
+    event.target.classList.remove('read');
+    event.target.classList.add('not-read');
   } else {
     myLibrary[event.target.dataset.index].read = true;
     event.target.textContent = 'Read';
+    event.target.classList.remove('not-read');
+    event.target.classList.add('read');
   }
 }
 

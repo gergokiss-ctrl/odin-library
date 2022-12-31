@@ -1,41 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Library</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Roboto">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto"
+    />
+  </head>
 
-<body>
-<button class="open-button" onclick="openForm()">Add Book</button>
+  <body>
+    <div class="container">
+      <button class="open-button" onclick="openForm()">Add Book</button>
 
-<div class="form-popup" id="myForm">
-  <form action="/index.html" class="form-container">
-    <label for="title"></label>
-    <input type="text" placeholder="Enter book title" name="title" class="title" required>
+      <div class="form-popup" id="myForm">
+        <form action="/index.html" class="form-container">
+          <label for="title"></label>
+          <input
+            type="text"
+            placeholder="Enter book title"
+            name="title"
+            class="title"
+            required
+          />
 
-    <label for="author"></label>
-    <input type="text" placeholder="Enter book author" name="author" class="author" required>
+          <label for="author"></label>
+          <input
+            type="text"
+            placeholder="Enter book author"
+            name="author"
+            class="author"
+            required
+          />
 
-    <label for="pages"></label>
-    <input type="number" placeholder="Enter page number" name="pages" class="pages" required>
+          <label for="pages"></label>
+          <input
+            type="number"
+            placeholder="Enter page number"
+            name="pages"
+            class="pages"
+            required
+          />
 
-    <b>Have you read it?</b>
-    <label class="switch">
-      <input type="checkbox" class="read">
-      <span class="slider round"></span>
-    </label>
+          <label for="read">Have you read it?</label>
+          <input type="checkbox" name="read" class="read" />
 
-    <button type="submit" class="btn submit">Submit Book</button>
-  </form>
-</div>
+          <button type="submit" class="btn submit">Submit Book</button>
+        </form>
+      </div>
 
-  <div class="container"></div>
-
-  <script src="javascript.js"></script>
-</body>
+      <div class="grid-container"></div>
+    </div>
+    <script src="javascript.js"></script>
+  </body>
 </html>
