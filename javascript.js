@@ -8,7 +8,6 @@ const container = document.querySelector('.container');
 let myLibrary = [];
 let counter = 0;
 
-// eslint-disable-next-line no-unused-vars
 function openForm() {
   document.getElementById('myForm').style.display = 'block';
 }
@@ -35,8 +34,18 @@ function createContent(event) {
     const titleText = document.createElement('div');
     const authorText = document.createElement('div');
     const pagesText = document.createElement('div');
-    const readText = document.createElement('div');
+    const readText = document.createElement('button');
     const deleteText = document.createElement('button');
+
+    if (myLibrary[i].read === true) {
+      readText.textContent = 'Read';
+    } else {
+      readText.textContent = 'Not read';
+    }
+
+    readText.setAttribute('class', 'read-button');
+    readText.setAttribute('onclick', 'readBook(event)');
+    readText.setAttribute('data-index', i);
 
     deleteText.textContent = 'Remove';
     deleteText.setAttribute('class', 'delete-button');
@@ -46,12 +55,6 @@ function createContent(event) {
     titleText.textContent = myLibrary[i].title;
     authorText.textContent = myLibrary[i].author;
     pagesText.textContent = myLibrary[i].pages;
-
-    if (myLibrary[i].read === true) {
-      readText.textContent = 'Read';
-    } else {
-      readText.textContent = 'Not read';
-    }
 
     content.appendChild(titleText);
     content.appendChild(authorText);
@@ -78,7 +81,16 @@ function addBookToLibrary() {
   });
 }
 
-// eslint-disable-next-line no-unused-vars
+function readBook(event) {
+  if (myLibrary[event.target.dataset.index].read === true) {
+    myLibrary[event.target.dataset.index].read = false;
+    event.target.textContent = 'Not read';
+  } else {
+    myLibrary[event.target.dataset.index].read = true;
+    event.target.textContent = 'Read';
+  }
+}
+
 function deleteBook(event) {
   myLibrary.splice(event.target.dataset.index, 1);
   counter -= 1;
