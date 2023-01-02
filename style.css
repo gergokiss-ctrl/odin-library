@@ -140,3 +140,7 @@ hr {
   border-top: 2px solid #ddd;
   width: 100%;
 }
+
+.blur {
+  filter: blur(3px);
+}

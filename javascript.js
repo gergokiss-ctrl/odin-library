@@ -10,6 +10,7 @@ let counter = 0;
 
 function openForm() {
   document.getElementById('myForm').style.display = 'block';
+  container.classList.add('blur');
 }
 
 // eslint-disable-next-line no-shadow
@@ -90,6 +91,7 @@ function addBookToLibrary() {
       createContent(event);
 
       document.getElementById('myForm').style.display = 'none';
+      container.classList.remove('blur');
     }
   });
 }
