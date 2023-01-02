@@ -32,7 +32,9 @@ function createContent(event) {
     content.classList.add('content');
 
     const titleText = document.createElement('div');
+    const firstSeparator = document.createElement('hr');
     const authorText = document.createElement('div');
+    const secondSeparator = document.createElement('hr');
     const pagesText = document.createElement('div');
     const readText = document.createElement('button');
     const deleteText = document.createElement('button');
@@ -59,7 +61,9 @@ function createContent(event) {
     pagesText.textContent = `${myLibrary[i].pages} pages`;
 
     content.appendChild(titleText);
+    content.appendChild(firstSeparator);
     content.appendChild(authorText);
+    content.appendChild(secondSeparator);
     content.appendChild(pagesText);
     content.appendChild(readText);
     content.appendChild(deleteText);
