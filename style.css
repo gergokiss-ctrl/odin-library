@@ -7,33 +7,23 @@
 body {
   font-family: "Roboto", serif;
   font-size: 20px;
+  background-color: #e0f2fe;
 }
 
 .container {
-  height: 100vh;
-  padding: 20px;
+  padding: 25px;
   display: grid;
-  grid-template-rows: 10% 1fr;
-  background-color: #e0f2fe;
+  gap: 25px;
   place-items: center;
   place-content: center;
 }
 
 .grid-container {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60%;
-  max-height: auto;
   border-radius: 8px;
-
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-
-  /* place-items: center; */
   place-content: center;
+  gap: 25px;
 }
 
 .content {
@@ -41,24 +31,26 @@ body {
   flex-direction: column;
   align-items: center;
   flex: 1;
-  gap: 20px;
-  height: auto;
-  width: 1fr;
+  gap: 25px;
   border-radius: 8px;
   background-color: #ffffff;
   box-shadow: 0px 0px 3px 0px #a3a3a3;
-  padding: 20px;
+  padding: 25px;
 }
 
 .content > * {
   padding: 10px;
 }
 
-.content > button {
+.read-button,
+.delete-button {
   display: block;
-  border-radius: 8px;
   width: 100%;
+  /* width: 100%; */
+  border: none;
+  border-radius: 8px;
   font-size: 20px;
+  font-weight: bold;
 }
 
 .read {
@@ -73,35 +65,28 @@ body {
   background-color: #fbbabd;
 }
 
-.read,
-.not-read,
-.delete-button {
-  font-weight: bold;
-  border: none;
-}
-
 .read:hover,
 .not-read:hover,
-.delete-button:hover {
+.delete-button:hover,
+.open-button:hover,
+.btn:hover {
   opacity: 0.8;
   cursor: pointer;
 }
 
 .open-button {
-  background-color: #a3a3a3;
-  color: #000000;
+  box-shadow: 0px 0px 3px 0px #a3a3a3;
+  background-color: #d6d0ff;
+  border: none;
   border-radius: 8px;
-  min-width: 100px;
-  min-height: 100px;
+  padding: 25px;
   font-size: 24px;
   font-weight: bold;
 }
 
-.open-button:hover {
-  cursor: pointer;
-}
-
 .form-popup {
+  border-radius: 8px;
+  box-shadow: 0px 0px 3px 0px #a3a3a3;
   display: none;
   position: fixed;
   top: 50%;
@@ -111,15 +96,17 @@ body {
 }
 
 .form-container {
+  border-radius: 8px;
   max-width: 300px;
-  padding: 10px;
+  padding: 25px;
   background-color: white;
 }
 
 .form-container input[type="text"],
 .form-container input[type="number"] {
   width: 100%;
-  padding: 15px;
+  border-radius: 8px;
+  padding: 25px;
   margin: 5px 0 22px 0;
   border: none;
   background: #f1f1f1;
@@ -131,18 +118,19 @@ body {
   outline: none;
 }
 
-.form-container .btn {
-  background-color: #2196f3;
-  color: white;
-  font-size: 20px;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom: 10px;
+input[type="checkbox"] {
+  margin-left: 10px;
+  transform: scale(1.5);
 }
 
-.form-container .btn:hover,
-.open-button:hover {
-  opacity: 1;
+.form-container .btn {
+  background-color: #d6d0ff;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 25px;
 }
